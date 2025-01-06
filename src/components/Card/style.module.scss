@@ -23,7 +23,6 @@
     .body{
       display: flex;
       height: 100%;
-      margin-top: 50px;
       gap: 50px;
 
       .description{
@@ -53,11 +52,13 @@
         position: relative;
         width: 60%;
         height: 100%;
+        overflow: hidden;
+
         .inner{
           width: 100%;
           height: 100%;
           overflow-y: scroll;
-          scrollbar-width: none;
+          // scrollbar-width: none;
 
           .smallCard {
             height: 300px;

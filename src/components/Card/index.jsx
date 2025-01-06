@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./style.module.scss";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef } from "react";
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 const Card = ({
   i,
@@ -16,6 +17,7 @@ const Card = ({
   targetScale,
   smallCards,
 }) => {
+  // useLockBodyScroll();
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -24,6 +26,7 @@ const Card = ({
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
   const scale = useTransform(progress, range, [1, targetScale]);
+  console.log("i, imageScale, scel", { i, imageScale, scale });
 
   return (
     <div ref={container} className={styles.cardContainer}>
@@ -35,7 +38,6 @@ const Card = ({
         }}
         className={styles.card}
       >
-        <h2>{title}</h2>
         <div className={styles.body}>
           <div className={styles.description}>
             <p>{description}</p>
